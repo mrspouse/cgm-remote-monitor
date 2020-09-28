@@ -22,13 +22,13 @@ Nightscout Google Home/DialogFlow Plugin
 
 To add Google Home support for your Nightscout site, here's what you need to do:
 
-1. [Activate the `googlehome` plugin](#activate-the-nightscout-google-home-plugin) on your Nightscout site, so your site will respond correctly to Google's requests.
+1. [Activate the `google_actions` plugin](#activate-the-nightscout-google-home-plugin) on your Nightscout site, so your site will respond correctly to Google's requests.
 1. [Create a custom DialogFlow agent](#create-your-dialogflow-agent) that points at your site and defines certain questions you want to be able to ask.
 
 ## Activate the Nightscout Google Home Plugin
 
-1. Your Nightscout site needs to be new enough that it supports the `googlehome` plugin. It needs to be [version 13.0.0 (Ketchup)](https://github.com/nightscout/cgm-remote-monitor/releases/tag/13.0.0) or later. See [updating my version](https://github.com/nightscout/cgm-remote-monitor#updating-my-version) if you need a newer version.
-1. Add `googlehome` to the list of plugins in your `ENABLE` setting. ([Environment variables](https://github.com/nightscout/cgm-remote-monitor#environment) are set in the configuration section for your monitor. Typically Azure, Heroku, etc.)
+1. Your Nightscout site needs to be new enough that it supports the `google_actions` plugin. It needs to be [version 13.0.0 (Ketchup)](https://github.com/nightscout/cgm-remote-monitor/releases/tag/13.0.0) or later. See [updating my version](https://github.com/nightscout/cgm-remote-monitor#updating-my-version) if you need a newer version.
+1. Add `google_actions` to the list of plugins in your `ENABLE` setting. ([Environment variables](https://github.com/nightscout/cgm-remote-monitor#environment) are set in the configuration section for your monitor. Typically Azure, Heroku, etc.)
 
 ## Create Your DialogFlow Agent
 
@@ -59,7 +59,7 @@ To add Google Home support for your Nightscout site, here's what you need to do:
 1. Type "IMPORT" where requested and then click the "IMPORT" button.
 1. After the import finishes, click the "DONE" button followed by the "SAVE" button.
 1. In the navigation pane on the left, click on "Fulfillment".
-1. Enable the toggle for "Webhook" and then fill in the URL field with your Nightscout URL: `https://YOUR-NIGHTSCOUT-SITE/api/v1/googlehome`
+1. Enable the toggle for "Webhook" and then fill in the URL field with your Nightscout URL: `https://YOUR-NIGHTSCOUT-SITE/api/v1/google_actions`
     - If you use Authentication Roles, you'll need to add a bit to the end of your URL. See [the section](#do-you-use-authentication-roles) below.
 1. Scroll down to the bottom of the page and click the "SAVE" button.
 1. Click on "Integrations" in the navigation pane.
@@ -77,7 +77,7 @@ If you use Authentication Roles, you will need to add a token to the end of your
 1. In your Nightscout Admin Tools, add a new subject and give it the "readable" role.
     - If you **really** would like to be super specific, you could create a new role and set the permissions to `api:*:read`.
 1. After the new subject is created, copy the "Access Token" value for the new row in your subject table (**don't** copy the link, just copy the text).
-1. At the end of your Nighscout URL, add `?token=YOUR-TOKEN`, where `YOUR-TOKEN` is the Access Token you just copied. Your new URL should look like `https://YOUR-NIGHTSCOUT-SITE/api/v1/googlehome?token=YOUR-TOKEN`.
+1. At the end of your Nighscout URL, add `?token=YOUR-TOKEN`, where `YOUR-TOKEN` is the Access Token you just copied. Your new URL should look like `https://YOUR-NIGHTSCOUT-SITE/api/v1/google_actions?token=YOUR-TOKEN`.
 
 ### What questions can you ask it?
 
