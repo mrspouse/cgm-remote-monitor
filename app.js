@@ -4,7 +4,6 @@ const _get = require('lodash/get');
 const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
-
 const path = require('path');
 const fs = require('fs');
 const ejs = require('ejs');
@@ -12,6 +11,7 @@ const ejs = require('ejs');
 function create (env, ctx) {
   var app = express();
   var appInfo = env.name + ' ' + env.version;
+  app.use(bodyParser.json());
   app.set('title', appInfo);
   app.enable('trust proxy'); // Allows req.secure test on heroku https connections.
   var insecureUseHttp = env.insecureUseHttp;
