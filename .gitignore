@@ -9,6 +9,7 @@ bundle/bundle.out.js
 *.iml
 my.env
 my.*.env
+.venv/
 
 static/bower_components/
 .*.sw?
