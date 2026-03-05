@@ -5,6 +5,16 @@ LABEL maintainer="Nightscout Contributors"
 WORKDIR /opt/app
 ADD . /opt/app
 
+# Install Google Chrome for Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+
+RUN apt-get update && apt-get install gnupg wget -y && \
+  wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg && \
+  sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
+  apt-get update && \
+  apt-get install google-chrome-stable -y --no-install-recommends && \
+  rm -rf /var/lib/apt/lists/*
+
 # TODO: We should be able to do `RUN npm install --only=production`.
 # For this to work, we need to copy only package.json and things needed for `npm`'s to succeed.
 # TODO: Do we need to re-add `npm audit fix`? Or should that be part of a development process/stage?
