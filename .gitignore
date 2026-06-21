@@ -1,5 +1,11 @@
 bower_components/
-node_modules/
+node_modules/*
+!node_modules/nightscout-connect/
+node_modules/nightscout-connect/*
+!node_modules/nightscout-connect/lib/
+node_modules/nightscout-connect/lib/*
+!node_modules/nightscout-connect/lib/sources/
+!node_modules/nightscout-connect/lib/sources/**
 
 
 bundle/bundle.out.js
@@ -34,3 +40,7 @@ npm-debug.log
 # directories created by docker-compose.yml
 mongo-data/
 letsencrypt/
+
+backup/heroku_wj6ztt34/prelude.json
+backup/heroku_wj6ztt34/treatments.bson
+backup/heroku_wj6ztt34/treatments.metadata.json
