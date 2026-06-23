@@ -27,6 +27,9 @@ static/bower_components/
 # istanbul output
 coverage/
 
+# flaky test results
+flaky-test-results/
+
 npm-debug.log
 *.heapsnapshot
 
@@ -44,3 +47,5 @@ letsencrypt/
 backup/heroku_wj6ztt34/prelude.json
 backup/heroku_wj6ztt34/treatments.bson
 backup/heroku_wj6ztt34/treatments.metadata.json
+.replit
+attached_assets/
